@@ -1,8 +1,18 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewBag.Title = "Home";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome to TaskManagerApp</h1>
-    <p>This is my first ASP.NET App </p>
+<div class="text-center mt-5">
+    <h1 class="display-4">Welcome to Task Manager</h1>
+    <p class="lead">Manage your tasks efficiently with deadlines, priorities, and progress tracking.</p>
+
+    @if (User.Identity.IsAuthenticated)
+    {
+        <a class="btn btn-primary btn-lg mt-3" href="/Tasks">View My Tasks</a>
+    }
+    else
+    {
+        <a class="btn btn-success btn-lg mt-3" href="/Identity/Account/Register">Get Started</a>
+    }
 </div>

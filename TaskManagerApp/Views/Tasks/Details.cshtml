@@ -1,0 +1,19 @@
+﻿@model TaskManagerApp.Models.TaskItem
+@{
+    ViewBag.Title = "Task Details";
+}
+
+<h2>Task Details</h2>
+
+<div class="card">
+    <div class="card-body">
+        <h4 class="card-title">@Model.Title</h4>
+        <p class="card-text"><strong>Description:</strong> @Model.Description</p>
+        <p class="card-text"><strong>Due Date:</strong> @Model.DueDate.ToShortDateString()</p>
+        <p class="card-text"><strong>Status:</strong> @Model.Status</p>
+    </div>
+</div>
+
+<a href="/Task/Edit/@Model.Id" class="btn btn-warning mt-3">Edit</a>
+<a href="/Task/Delete/@Model.Id" class="btn btn-danger mt-3">Delete</a>
+<a href="/Task" class="btn btn-secondary mt-3">Back to List</a>
